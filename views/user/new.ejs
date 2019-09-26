@@ -1,0 +1,32 @@
+<form action="/user/create" method="POST" style="border:1px solid #ccc">
+  <div class="container">
+    <h1>Create Accoint</h1>
+    <% if(flash && flash.err){%>
+    <ul class="alert alert-danger">
+      <% Object.keys(flash.err).forEach(function(error){%>
+      <li><%=JSON.stringify(flash.err[error])%></li>
+      <%})%>
+    </ul>
+    <%}%>
+      <hr>
+
+      <label for="name"><b>Name</b></label>
+      <input type="text" placeholder="Enter Name" name="name">
+
+      <label for="title"><b>Title</b></label>
+      <input type="text" placeholder="Enter Title" name="title">
+
+      <label for="email"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email" name="email">
+
+      <label for="password"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="password">
+
+      <label for="confirmation"><b>Repeat Password</b></label>
+      <input type="password" placeholder="Repeat Password" name="confirmation">
+      <div class="clearfix">
+        <input type="submit" class="btn btn-lg btn-primary btn-block" value="Create Acount">
+        <input type="hidden" name="_csrf" value="<%=_csrf%>">
+  </div>
+  </div>
+</form>

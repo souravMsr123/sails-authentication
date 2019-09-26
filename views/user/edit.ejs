@@ -1,0 +1,30 @@
+<form action="/user/update/<%=user.id%>" method="POST" style="border:1px solid #ccc">
+  <div class="container">
+    <h1>Update Accoint</h1>
+    <% if(flash && flash.err){%>
+    <ul class="alert alert-danger">
+      <% Object.keys(flash.err).forEach(function(error){%>
+      <li><%=JSON.stringify(flash.err[error])%></li>
+      <%})%>
+    </ul>
+    <%}%>
+        <hr>
+        <label for="name"><b>Name</b></label>
+        <input type="text" placeholder="Enter Name" name="name" value="<%=user.name%>">
+
+    <label for="title"><b>Title</b></label>
+    <input type="text" placeholder="Enter Title" name="title" value="<%=user.title%>">
+
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" value="<%=user.email%>">
+
+    <%if(req.session.User && req.session.User.admin){%>
+    <label for="admin"><b>Admin</b></label>
+    <input type="checkbox" value=1 name="admin" checked>
+    <%}%>
+    <div class="clearfix">
+      <input type="submit" class="btn btn-lg btn-primary btn-block" value="Update Acount">
+      <input type="hidden" name="_csrf" value="<%=_csrf%>">
+  </div>
+  </div>
+</form>

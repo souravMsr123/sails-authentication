@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+    <div class="span4 well">
+      <div class="row">
+        <div class="span1">
+          <%if(req.session.User && req.session.User.admin){%>
+          <img src="http://localhost:1337/images/crown.png" height="25" width="25">
+          <%}else{%>
+          <img src="http://localhost:1337/images/pawn.jpg" height="25" width="25">
+          <%}%>
+        </div>
+        <div class="span3">
+          <p><strong><%=user.name%></strong></p>
+          <p><strong><%=user.email%></strong></p>
+          <p><strong><%=user.title%></strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
